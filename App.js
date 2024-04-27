@@ -166,6 +166,9 @@ const styles = StyleSheet.create({
   },
   btnsRow: {
     marginVertical: 10,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   iconBtn: {
     flexDirection: "row",
