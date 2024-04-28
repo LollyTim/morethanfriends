@@ -1,16 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-// import { Entypo } from "@expo/vector-icons";
-// import { AntDesign } from "@expo/vector-icons";
-// import { EvilIcons } from "@expo/vector-icons";
-// import { MaterialCommunityIcons } from "@expo/vector-icons";
-// import LikeImage from "./assets/images/like.png";
-import FeedPost from "./src/components/FeedPost";
+import { StyleSheet, View, FlatList } from "react-native";
+import FeedScreen from "./src/screens/FeedScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <FeedPost />
+      <FeedScreen />
 
       <StatusBar style="auto" />
     </View>
@@ -20,7 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "lightblue",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "200px",

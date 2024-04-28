@@ -21,7 +21,7 @@ const post = {
   numberOfLikes: 11,
   numberOfShares: 2,
 };
-const FeedPost = () => {
+const FeedPost = ({ post }) => {
   return (
     <View style={styles.post}>
       {/* header */}
