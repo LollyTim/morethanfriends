@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   numOfShares: {},
   shares: {
     marginLeft: "auto",
-    color: "gra",
+    color: "gray",
   },
   btnsRow: {
     marginVertical: 10,
