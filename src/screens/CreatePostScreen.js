@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import { useNavigation } from "@react-navigation/native";
 
 const user = {
   id: "u1",
@@ -24,10 +25,13 @@ const user = {
 const CreatePostScreen = () => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const navigation = useNavigation();
 
   const onSubmit = () => {
     console.warn("Button Pressed", description);
     setDescription("");
+
+    navigation.goBack();
   };
 
   const pickImage = async () => {
@@ -54,6 +58,7 @@ const CreatePostScreen = () => {
         style={[styles.container, { marginBottom: 5 }]}
         contentContainerStyle={{ flex: 1 }}
       >
+        <Text>Create Post Screen</Text>
         <View style={styles.header}>
           <Image style={styles.progileImage} source={{ uri: user.image }} />
           <Text style={styles.name}>{user.name}</Text>
@@ -84,25 +89,26 @@ const CreatePostScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
     width: "100%",
     padding: 10,
-    marginTop: 20,
-    backgroundColor: "#fff",
   },
   header: {
+    padding: 10,
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    width: "100%",
   },
-  progileImage: {
-    height: 40,
+  profileImage: {
     width: 40,
-    borderRadius: 30,
+    height: 40,
+    borderRadius: 25,
     marginRight: 10,
   },
   name: {
     fontWeight: "500",
   },
+  input: {},
   buttonContainer: {
     marginTop: "auto",
   },
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    aspectRatio: 1,
+    aspectRatio: 4 / 3,
   },
 });
 

@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import LikeImage from "../../assets/images/like.png";
+import { useNavigation } from "@react-navigation/native";
 
 const post = {
   id: "p1",
@@ -22,10 +23,15 @@ const post = {
   numberOfShares: 2,
 };
 const FeedPost = ({ post }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.post}>
       {/* header */}
-      <View style={styles.header}>
+      <Pressable
+        style={styles.header}
+        onPress={() => navigation.navigate("Profile", { id: post.User.id })}
+      >
         <Image source={{ uri: post.User.image }} style={styles.profileImage} />
         <View>
           <Text style={styles.name}>{post.User.name}</Text>
@@ -37,7 +43,7 @@ const FeedPost = ({ post }) => {
           color="black"
           style={styles.icon}
         />
-      </View>
+      </Pressable>
 
       {/* body */}
       {post.description && (
